@@ -1,0 +1,44 @@
+{% set name = "amityping" %}
+{% set version = "1.1.5" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/slac-lcls/{{ name }}/archive/{{ version }}.tar.gz
+  sha256: c867fbd2c732824f29ffec2b9744a0a28bfa1f7f1ce8ce5160ebcd5e84830797 
+
+build:
+  skip: True  # [win or osx]
+  noarch: python 
+  number: 3
+  script:
+    - "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - python
+    - setuptools
+    - pip
+  run:
+    - python
+    - numpy
+    - mypy_extensions
+
+about:
+  home: https://github.com/slac-lcls/amityping
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE.md
+  summary: 'Type hints for LCLS-II software'
+  description: |
+    provides typing hints to be shared between LCLS-II analysis packages.
+  doc_url: https://github.com/slac-lcls/amityping
+  dev_url: https://github.com/slac-lcls/amityping
+
+extra:
+  recipe-maintainers:
+    - valmar
+    - chrisvam
+

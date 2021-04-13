@@ -1,5 +1,5 @@
 {% set name = "amityping" %}
-{% set version = "1.1.6" %}
+{% set version = "1.1.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/slac-lcls/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: 5ebf7dc6f4f488fc540e2ba34e32bee48fb898a79d510c401b6b0be1afcfce78 
+  sha256: 5f5988a368d0f21022a118bfd140da6f73871792abc8476c809aa4b64b0d9938
 
 build:
   skip: True  # [win or osx]
   noarch: python 
-  number: 5
+  number: 0
   script:
     - "{{ PYTHON }} -m pip install . -vv"
 
